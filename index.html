@@ -6,21 +6,17 @@
     <title>Design Flop | Simples, bonitas y efectivas</title>
     <meta name="description" content="Agencia de diseño web enfocada en Pymes y profesionales. Creamos sitios simples, bonitos y efectivos.">
     
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome para Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Configuración personalizada de Tailwind -->
     <script>
         tailwind.config = {
-            darkMode: 'class', // Importante para el toggle manual
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -28,11 +24,11 @@
                     },
                     colors: {
                         brand: {
-                            orange: '#F97316', // Naranja vibrante
-                            orangeDark: '#EA580C', // Naranja más oscuro para hover
-                            grayLight: '#F1F5F9', // Gris azulado claro (base modo claro)
-                            dark: '#0F172A', // Azul muy oscuro/negro
-                            darkSurface: '#1E293B', // Gris oscuro para tarjetas en modo oscuro
+                            orange: '#F97316',
+                            orangeDark: '#EA580C',
+                            grayLight: '#F1F5F9',
+                            dark: '#0F172A',
+                            darkSurface: '#1E293B',
                         }
                     },
                     animation: {
@@ -50,11 +46,7 @@
     </script>
 
     <style>
-        /* Estilos base adicionales si fueran necesarios */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Transición suave para el cambio de tema */
+        body { font-family: 'Inter', sans-serif; }
         body, div, nav, section, footer, button, input, textarea {
             transition-property: color, background-color, border-color;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -64,344 +56,166 @@
 </head>
 <body class="bg-brand-grayLight text-slate-800 dark:bg-brand-dark dark:text-slate-100 flex flex-col min-h-screen">
 
-    <!-- Navbar -->
     <nav class="fixed w-full z-50 top-0 start-0 border-b border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-brand-dark/90 backdrop-blur-sm">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <div class="w-10 h-10 bg-brand-orange rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                    D
-                </div>
+                <div class="w-10 h-10 bg-brand-orange rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">D</div>
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white tracking-tight">Design Flop</span>
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center gap-4">
-                
-                <!-- Botón Toggle Modo Oscuro -->
-                <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5" aria-label="Cambiar modo">
+                <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
                     <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                     <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
                 </button>
-
-                <a href="#contacto" class="hidden md:inline-flex text-white bg-brand-orange hover:bg-brand-orangeDark focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2 text-center transition-all transform hover:scale-105">
-                    Empezar Proyecto
-                </a>
-                
-                <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false" id="menu-toggle">
-                    <span class="sr-only">Abrir menú principal</span>
+                <a href="#contacto" class="hidden md:inline-flex text-white bg-brand-orange hover:bg-brand-orangeDark font-medium rounded-lg text-sm px-4 py-2 text-center transition-all transform hover:scale-105">Empezar Proyecto</a>
+                <button id="menu-toggle" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
-                    <li>
-                        <a href="#inicio" class="block py-2 px-3 text-white bg-brand-orange rounded md:bg-transparent md:text-brand-orange md:p-0" aria-current="page">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="#servicios" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-brand-orange md:p-0 md:dark:hover:text-brand-orange dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent border-transparent">Servicios</a>
-                    </li>
-                    <li>
-                        <a href="#nosotros" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-brand-orange md:p-0 md:dark:hover:text-brand-orange dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent border-transparent">Nosotros</a>
-                    </li>
-                    <li>
-                        <a href="#contacto" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-brand-orange md:p-0 md:dark:hover:text-brand-orange dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent border-transparent">Contacto</a>
-                    </li>
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+                    <li><a href="#inicio" class="block py-2 px-3 text-brand-orange">Inicio</a></li>
+                    <li><a href="#servicios" class="block py-2 px-3 hover:text-brand-orange dark:text-white">Servicios</a></li>
+                    <li><a href="#nosotros" class="block py-2 px-3 hover:text-brand-orange dark:text-white">Nosotros</a></li>
+                    <li><a href="#contacto" class="block py-2 px-3 hover:text-brand-orange dark:text-white">Contacto</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="inicio" class="pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:grid-cols-12 gap-8">
             <div class="mr-auto place-self-center lg:col-span-7">
                 <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
                     Webs <span class="text-brand-orange">Simples,</span> bonitas y efectivas.
                 </h1>
                 <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                    En Design Flop nos especializamos en transformar la presencia digital de Pymes y profesionales. Diseño estratégico que convierte visitantes en clientes.
+                    Transformamos la presencia digital de Pymes y profesionales con diseño estratégico.
                 </p>
                 <div class="flex flex-col gap-4 sm:flex-row">
-                    <a href="#contacto" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-brand-orange hover:bg-brand-orangeDark focus:ring-4 focus:ring-orange-300 dark:focus:ring-orange-900 transition-all shadow-lg shadow-orange-500/30">
-                        Cotizar mi web
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="#servicios" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800 transition-all">
-                        Ver Servicios
+                    <a href="#contacto" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-white rounded-lg bg-brand-orange hover:bg-brand-orangeDark shadow-lg shadow-orange-500/30">
+                        Cotizar mi web <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
             </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex items-center justify-center relative">
-                <!-- Elemento decorativo detrás -->
+            <div class="hidden lg:col-span-5 lg:flex items-center justify-center relative">
                 <div class="absolute w-72 h-72 bg-brand-orange/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
-                
-                <!-- Imagen Hero (MODIFICADA A lamparita.jpg) -->
                 <div class="relative w-full max-w-md animate-float">
-                    <img src="lamparita.jpg" 
-                         alt="Lamparita creativa con engranajes representando ideas" 
-                         class="rounded-lg shadow-2xl w-full object-cover h-auto border-4 border-white dark:border-gray-700">
-                    <!-- Nota flotante -->
-                    <div class="absolute -bottom-6 -left-6 bg-white dark:bg-brand-darkSurface p-4 rounded-lg shadow-xl border border-gray-100 dark:border-gray-700">
-                        <div class="flex items-center space-x-2">
-                            <div class="p-2 bg-green-100 dark:bg-green-900/30 rounded-full text-green-600 dark:text-green-400">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">Proyectos</p>
-                                <p class="text-sm font-bold dark:text-white">100% Exitosos</p>
-                            </div>
-                        </div>
-                    </div>
+                    <img src="lamparita.jpg" alt="Creatividad" class="rounded-lg shadow-2xl w-full border-4 border-white dark:border-gray-700">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Servicios Section -->
-    <section id="servicios" class="bg-white dark:bg-brand-darkSurface py-24">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-            <div class="mx-auto max-w-screen-md text-center mb-16">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Soluciones para tu Negocio</h2>
-                <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Diseñamos estrategias digitales adaptadas específicamente a Pymes y profesionales independientes.</p>
-            </div>
-            <div class="space-y-8 md:grid md:grid-cols-1 lg:grid-cols-3 md:gap-12 md:space-y-0">
-                <!-- Servicio 1 -->
-                <div class="flex flex-col p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:bg-brand-orange/5 dark:hover:bg-brand-orange/10 transition-colors duration-300 group">
-                    <div class="flex justify-center items-center mb-4 w-14 h-14 rounded-full bg-brand-orange/10 group-hover:bg-brand-orange text-brand-orange group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-laptop-code text-2xl"></i>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">Desarrollo Web a Medida</h3>
-                    <p class="text-gray-500 dark:text-gray-400">Sitios web rápidos y optimizados para SEO, diseñados para cargar en segundos y retener a tus clientes.</p>
-                </div>
-                <!-- Servicio 2 -->
-                <div class="flex flex-col p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:bg-brand-orange/5 dark:hover:bg-brand-orange/10 transition-colors duration-300 group">
-                    <div class="flex justify-center items-center mb-4 w-14 h-14 rounded-full bg-brand-orange/10 group-hover:bg-brand-orange text-brand-orange group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-mobile-alt text-2xl"></i>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">Diseño Responsivo</h3>
-                    <p class="text-gray-500 dark:text-gray-400">Tu web se verá impecable en celulares, tablets y computadoras. Adaptabilidad total al dispositivo.</p>
-                </div>
-                <!-- Servicio 3 -->
-                <div class="flex flex-col p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:bg-brand-orange/5 dark:hover:bg-brand-orange/10 transition-colors duration-300 group">
-                    <div class="flex justify-center items-center mb-4 w-14 h-14 rounded-full bg-brand-orange/10 group-hover:bg-brand-orange text-brand-orange group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-cogs text-2xl"></i>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">Mantenimiento y Soporte</h3>
-                    <p class="text-gray-500 dark:text-gray-400">No te preocupes por lo técnico. Nosotros nos encargamos de que tu sitio siempre esté online y actualizado.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sobre Nosotros -->
-    <section id="nosotros" class="bg-brand-grayLight dark:bg-brand-dark py-24">
-        <div class="px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="order-2 md:order-1 text-left">
-                    <h2 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                        ¿Por qué <span class="text-brand-orange">Design Flop</span>?
-                    </h2>
-                    <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
-                        Creemos que el buen diseño no tiene por qué ser complicado. Nacimos con la misión de democratizar el acceso a sitios web de alta calidad para Pymes que necesitan resultados reales, sin tecnicismos innecesarios.
-                    </p>
-                    <ul class="space-y-4 text-left text-gray-500 dark:text-gray-400">
-                        <li class="flex items-center space-x-3">
-                            <i class="fas fa-check-circle text-brand-orange"></i>
-                            <span>Enfoque en conversión y ventas.</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i class="fas fa-check-circle text-brand-orange"></i>
-                            <span>Diseños modernos y atemporales.</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i class="fas fa-check-circle text-brand-orange"></i>
-                            <span>Atención personalizada y cercana.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="order-1 md:order-2">
-                     <div class="relative">
-                        <div class="absolute inset-0 bg-brand-orange rounded-xl transform rotate-3 opacity-20"></div>
-                        <img class="relative rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipo colaborando" />
-                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto & Footer -->
     <footer id="contacto" class="bg-white dark:bg-brand-darkSurface border-t border-gray-200 dark:border-gray-800">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-12">
             <div class="md:grid md:grid-cols-2 gap-12">
-                <!-- Contacto Info -->
                 <div>
-                    <a href="#" class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 bg-brand-orange rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                            D
-                        </div>
-                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Design Flop</span>
-                    </a>
-                    <p class="text-gray-500 dark:text-gray-400 mb-6 max-w-sm">
-                        ¿Listo para llevar tu negocio al siguiente nivel? Contáctanos hoy mismo y comencemos a trabajar juntos.
-                    </p>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium space-y-4">
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt w-6 text-brand-orange"></i>
-                            <span>Córdoba, Argentina</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope w-6 text-brand-orange"></i>
-                            <a href="mailto:hola@designflop.com" class="hover:underline">designflop@gmail.com</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone w-6 text-brand-orange"></i>
-                            <span>+54 9 351 240 2359</span>
-                        </li>
+                    <h2 class="text-3xl font-bold dark:text-white mb-4">¿Hablamos?</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mb-6">Estamos en Córdoba, Argentina. Listos para empezar tu proyecto.</p>
+                    <ul class="text-gray-500 dark:text-gray-400 space-y-4">
+                        <li><i class="fas fa-envelope text-brand-orange mr-2"></i> designflop@gmail.com</li>
+                        <li><i class="fas fa-phone text-brand-orange mr-2"></i> +54 9 351 240 2359</li>
                     </ul>
                 </div>
 
-                <!-- Formulario -->
                 <div>
-                    <form id="contactForm" class="space-y-4">
+                    <form id="contactForm" action="https://formspree.io/f/TU_CODIGO" method="POST" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
-                                <input type="text" id="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-orange focus:border-brand-orange block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Tu nombre" required>
+                                <label class="block mb-2 text-sm font-medium dark:text-white">Nombre</label>
+                                <input type="text" name="nombre" class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Tu nombre" required>
                             </div>
                             <div>
-                                <label for="celular" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Celular</label>
-                                <input type="tel" id="celular" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-orange focus:border-brand-orange block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="+54 9..." required>
+                                <label class="block mb-2 text-sm font-medium dark:text-white">Celular</label>
+                                <input type="tel" name="celular" class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="+54 9..." required>
                             </div>
                         </div>
                         <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                            <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-orange focus:border-brand-orange block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="nombre@ejemplo.com" required>
+                            <label class="block mb-2 text-sm font-medium dark:text-white">Email</label>
+                            <input type="email" name="email" class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="nombre@ejemplo.com" required>
                         </div>
                         <div>
-                            <label for="mensaje" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mensaje</label>
-                            <textarea id="mensaje" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-orange focus:border-brand-orange block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+                            <label class="block mb-2 text-sm font-medium dark:text-white">Mensaje</label>
+                            <textarea name="mensaje" rows="4" class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
                         </div>
-                        <button type="submit" class="w-full text-white bg-brand-orange hover:bg-brand-orangeDark focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-3 text-center dark:focus:ring-orange-900 transition-colors shadow-lg shadow-orange-500/30 flex justify-center items-center">
+                        
+                        <button type="submit" id="submitBtn" class="w-full text-white bg-brand-orange hover:bg-brand-orangeDark font-medium rounded-lg px-5 py-3 shadow-lg flex justify-center items-center transition-all">
                             <i class="fas fa-paper-plane mr-2"></i> ENVIAR MENSAJE
                         </button>
-                        <!-- Mensaje de éxito oculto -->
-                        <div id="formFeedback" class="hidden p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-                            <span class="font-medium">¡Mensaje enviado!</span> Nos pondremos en contacto contigo pronto.
+
+                        <div id="formFeedback" class="hidden p-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 border border-green-200" role="alert">
+                            <p class="font-bold text-lg">¡Muchas gracias!</p>
+                            <p>En breve será contactado por nuestro equipo.</p>
                         </div>
                     </form>
-                </div>
-            </div>
-            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-            <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#" class="hover:underline">Design Flop™</a>. Todos los derechos reservados.
-                </span>
-                <div class="flex mt-4 sm:justify-center sm:mt-0 space-x-5">
-                    <a href="#" class="text-gray-500 hover:text-brand-orange dark:hover:text-white transition-colors">
-                        <i class="fab fa-facebook-f"></i>
-                        <span class="sr-only">Facebook page</span>
-                    </a>
-                    <a href="#" class="text-gray-500 hover:text-brand-orange dark:hover:text-white transition-colors">
-                        <i class="fab fa-instagram"></i>
-                        <span class="sr-only">Instagram</span>
-                    </a>
-                    <a href="#" class="text-gray-500 hover:text-brand-orange dark:hover:text-white transition-colors">
-                        <i class="fab fa-linkedin-in"></i>
-                        <span class="sr-only">LinkedIn</span>
-                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Widget -->
-    <a href="https://wa.me/5493512402359" target="_blank" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp text-3xl group-hover:animate-bounce"></i>
-        <!-- Tooltip -->
-        <span class="absolute right-16 bg-white text-gray-800 text-xs font-bold py-1 px-3 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap dark:bg-gray-800 dark:text-white pointer-events-none">
-            ¡Hablanos!
-        </span>
+    <a href="https://wa.me/5493512402359" target="_blank" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg transform hover:scale-110 transition-all">
+        <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
-    <!-- Scripts de Lógica -->
     <script>
         // --- Lógica del Modo Oscuro ---
-        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-        // Cambiar los iconos dentro del botón basado en configuración anterior
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
         } else {
-            themeToggleDarkIcon.classList.remove('hidden');
+            darkIcon.classList.remove('hidden');
         }
 
-        var themeToggleBtn = document.getElementById('theme-toggle');
-
-        themeToggleBtn.addEventListener('click', function() {
-            // Alternar iconos
-            themeToggleDarkIcon.classList.toggle('hidden');
-            themeToggleLightIcon.classList.toggle('hidden');
-
-            // Si se establece vía local storage previamente
-            if (localStorage.getItem('color-theme')) {
-                if (localStorage.getItem('color-theme') === 'light') {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                }
-            } else {
-                // Si NO hay en local storage
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                }
-            }
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+            localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
         });
 
         // --- Lógica del Menú Móvil ---
-        const menuToggle = document.getElementById('menu-toggle');
-        const navbarSticky = document.getElementById('navbar-sticky');
-
-        menuToggle.addEventListener('click', () => {
-            navbarSticky.classList.toggle('hidden');
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('navbar-sticky').classList.toggle('hidden');
         });
 
-        // --- Lógica del Formulario (Simulación) ---
-        const contactForm = document.getElementById('contactForm');
-        const formFeedback = document.getElementById('formFeedback');
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        // --- Lógica de Formspree con AJAX ---
+        const form = document.getElementById("contactForm");
+        const feedback = document.getElementById("formFeedback");
+        const btn = document.getElementById("submitBtn");
 
-        contactForm.addEventListener('submit', function(e) {
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Enviando...';
+
+            const data = new FormData(form);
             
-            // Simular estado de carga
-            const originalBtnText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            submitBtn.disabled = true;
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
 
-            // Simular retardo de red (2 segundos)
-            setTimeout(() => {
-                // Restaurar botón
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
-                
-                // Mostrar mensaje de éxito
-                formFeedback.classList.remove('hidden');
-                
-                // Resetear formulario
-                contactForm.reset();
-
-                // Ocultar mensaje después de 5 segundos
-                setTimeout(() => {
-                    formFeedback.classList.add('hidden');
-                }, 5000);
-            }, 2000);
+                if (response.ok) {
+                    feedback.classList.remove('hidden');
+                    form.reset();
+                    btn.classList.add('hidden'); // Ocultar botón tras éxito
+                } else {
+                    alert("Ops! Hubo un error al enviar. Intenta de nuevo.");
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i> ENVIAR MENSAJE';
+                }
+            } catch (error) {
+                alert("Error de conexión. Revisa tu internet.");
+                btn.disabled = false;
+            }
         });
     </script>
 </body>
-
 </html>
-
