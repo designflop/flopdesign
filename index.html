@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design Flop | Simples, bonitas y efectivas</title>
+    <title>Flop Design | Simples, bonitas y efectivas</title>
     <meta name="description" content="Agencia de diseño web enfocada en Pymes y profesionales. Creamos sitios simples, bonitos y efectivos.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,7 +56,7 @@
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="lamparita.jpg" alt="Logo" class="w-10 h-10 rounded-full border-2 border-brand-orange object-cover shadow-md">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white tracking-tight">Design Flop</span>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white tracking-tight">Flop Design</span>
             </a>
             <div class="flex md:order-2 space-x-3 items-center gap-4">
                 <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5">
@@ -80,7 +80,6 @@
 
     <section id="inicio" class="pt-28 pb-10 md:pt-40 md:pb-32 overflow-hidden">
         <div class="max-w-screen-xl px-4 mx-auto flex flex-col lg:grid lg:grid-cols-12 gap-8 items-center text-center lg:text-left">
-            
             <div class="lg:col-span-7">
                 <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
                     Webs <span class="text-brand-orange">Simples,</span> bonitas y efectivas.
@@ -97,7 +96,6 @@
 
             <div class="lg:col-span-5 flex items-center justify-center relative w-full">
                 <div class="absolute w-48 h-48 md:w-72 md:h-72 bg-brand-orange/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
-                
                 <div class="relative w-2/3 sm:w-1/2 md:w-full max-w-sm">
                     <video 
                         src="lamparita.mp4" 
@@ -146,8 +144,8 @@
         <div class="mx-auto w-full max-w-screen-xl p-6 py-12">
             <div class="flex flex-col lg:grid lg:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">¿Hablamos?</h2>
-                    <p class="text-gray-500 dark:text-gray-400 mb-6">Córdoba, Argentina.</p>
+                    <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">¿Hablamos con Flop Design?</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mb-6">Estamos en Córdoba, Argentina.</p>
                     <ul class="text-gray-500 dark:text-gray-400 space-y-4">
                         <li><i class="fas fa-envelope text-brand-orange mr-2"></i> designflop@gmail.com</li>
                         <li><i class="fas fa-phone text-brand-orange mr-2"></i> +54 9 351 240 2359</li>
@@ -156,11 +154,11 @@
                 <div>
                     <form id="contactForm" action="https://formspree.io/f/xpqaelwd" method="POST" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" name="nombre" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-3 dark:text-white" placeholder="Nombre" required>
-                            <input type="tel" name="celular" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-3 dark:text-white" placeholder="Celular" required>
+                            <input type="text" name="nombre" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-3 dark:text-white" placeholder="Tu nombre" required>
+                            <input type="tel" name="celular" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-3 dark:text-white" placeholder="+54 9..." required>
                         </div>
                         <input type="email" name="email" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-3 dark:text-white" placeholder="Email" required>
-                        <textarea name="mensaje" rows="4" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-3 dark:text-white" placeholder="Tu mensaje" required></textarea>
+                        <textarea name="mensaje" rows="4" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-3 dark:text-white" placeholder="Mensaje" required></textarea>
                         <button type="submit" id="submitBtn" class="w-full text-white bg-brand-orange hover:bg-brand-orangeDark font-bold rounded-lg px-5 py-4 shadow-lg flex justify-center items-center">
                             <i class="fas fa-paper-plane mr-2"></i> ENVIAR MENSAJE
                         </button>
@@ -170,6 +168,9 @@
                         </div>
                     </form>
                 </div>
+            </div>
+            <div class="pt-8 mt-8 border-t border-gray-200 dark:border-gray-800 text-center text-gray-500 text-sm">
+                © 2025 Flop Design™. Todos los derechos reservados.
             </div>
         </div>
     </footer>
@@ -197,6 +198,10 @@
             localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
         });
 
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('navbar-sticky').classList.toggle('hidden');
+        });
+
         const form = document.getElementById("contactForm");
         const feedback = document.getElementById("formFeedback");
         const btn = document.getElementById("submitBtn");
@@ -222,8 +227,9 @@
                     btn.innerHTML = 'ENVIAR MENSAJE';
                 }
             } catch (error) {
-                alert("Error de conexión.");
+                alert("Error de conexión. Revisa tu internet.");
                 btn.disabled = false;
+                btn.innerHTML = 'ENVIAR MENSAJE';
             }
         });
     </script>
