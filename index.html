@@ -19,9 +19,7 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
                         brand: {
                             orange: '#F97316',
@@ -31,9 +29,7 @@
                             darkSurface: '#1E293B',
                         }
                     },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                    },
+                    animation: { 'float': 'float 6s ease-in-out infinite' },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
@@ -104,31 +100,31 @@
         </div>
     </section>
 
-    <section id="servicios" class="bg-[#111111] py-24">
+    <section id="servicios" class="bg-white dark:bg-[#111111] py-24 transition-colors">
         <div class="max-w-screen-xl px-4 mx-auto text-center">
-            <h2 class="text-4xl font-extrabold text-white mb-4">Soluciones para tu Negocio</h2>
-            <p class="text-gray-400 text-lg mb-16 max-w-3xl mx-auto">Diseñamos estrategias digitales adaptadas específicamente a Pymes y profesionales independientes.</p>
+            <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Soluciones para tu Negocio</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-lg mb-16 max-w-3xl mx-auto">Diseñamos estrategias digitales adaptadas específicamente a Pymes y profesionales independientes.</p>
             <div class="grid gap-8 md:grid-cols-3 text-left">
-                <div class="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800 hover:border-brand-orange/50 transition-all group">
+                <div class="bg-gray-50 dark:bg-[#1a1a1a] p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-brand-orange/50 transition-all group shadow-sm">
                     <div class="w-12 h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
                         <i class="fas fa-laptop-code text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Desarrollo Web a Medida</h3>
-                    <p class="text-gray-400">Sitios web rápidos y optimizados para SEO.</p>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Desarrollo Web a Medida</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Sitios web rápidos y optimizados para SEO.</p>
                 </div>
-                <div class="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800 hover:border-brand-orange/50 transition-all group">
+                <div class="bg-gray-50 dark:bg-[#1a1a1a] p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-brand-orange/50 transition-all group shadow-sm">
                     <div class="w-12 h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
                         <i class="fas fa-mobile-alt text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Diseño Responsivo</h3>
-                    <p class="text-gray-400">Tu web se verá impecable en cualquier dispositivo.</p>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Diseño Responsivo</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Tu web se verá impecable en cualquier dispositivo.</p>
                 </div>
-                <div class="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800 hover:border-brand-orange/50 transition-all group">
+                <div class="bg-gray-50 dark:bg-[#1a1a1a] p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-brand-orange/50 transition-all group shadow-sm">
                     <div class="w-12 h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
                         <i class="fas fa-cog text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Mantenimiento</h3>
-                    <p class="text-gray-400">Nosotros nos encargamos de que tu sitio siempre esté online.</p>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Mantenimiento</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Nosotros nos encargamos de que tu sitio siempre esté online.</p>
                 </div>
             </div>
         </div>
@@ -138,7 +134,7 @@
         <div class="mx-auto w-full max-w-screen-xl p-4 py-12">
             <div class="md:grid md:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="text-3xl font-bold dark:text-white mb-4">¿Hablamos?</h2>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">¿Hablamos?</h2>
                     <p class="text-gray-500 dark:text-gray-400 mb-6">Estamos en Córdoba, Argentina.</p>
                     <ul class="text-gray-500 dark:text-gray-400 space-y-4">
                         <li><i class="fas fa-envelope text-brand-orange mr-2"></i> designflop@gmail.com</li>
@@ -148,12 +144,12 @@
                 <div>
                     <form id="contactForm" action="https://formspree.io/f/xpqaelwd" method="POST" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" name="nombre" class="bg-gray-50 border border-gray-300 rounded-lg w-full p-2.5 dark:bg-gray-700 dark:text-white" placeholder="Tu nombre" required>
-                            <input type="tel" name="celular" class="bg-gray-50 border border-gray-300 rounded-lg w-full p-2.5 dark:bg-gray-700 dark:text-white" placeholder="+54 9..." required>
+                            <input type="text" name="nombre" class="bg-gray-50 border border-gray-300 rounded-lg w-full p-2.5 dark:bg-gray-700 dark:text-white focus:ring-brand-orange focus:border-brand-orange" placeholder="Tu nombre" required>
+                            <input type="tel" name="celular" class="bg-gray-50 border border-gray-300 rounded-lg w-full p-2.5 dark:bg-gray-700 dark:text-white focus:ring-brand-orange focus:border-brand-orange" placeholder="+54 9..." required>
                         </div>
-                        <input type="email" name="email" class="bg-gray-50 border border-gray-300 rounded-lg w-full p-2.5 dark:bg-gray-700 dark:text-white" placeholder="Email" required>
-                        <textarea name="mensaje" rows="4" class="bg-gray-50 border border-gray-300 rounded-lg w-full p-2.5 dark:bg-gray-700 dark:text-white" placeholder="Mensaje" required></textarea>
-                        <button type="submit" id="submitBtn" class="w-full text-white bg-brand-orange hover:bg-brand-orangeDark font-bold rounded-lg px-5 py-3 shadow-lg flex justify-center items-center">
+                        <input type="email" name="email" class="bg-gray-50 border border-gray-300 rounded-lg w-full p-2.5 dark:bg-gray-700 dark:text-white focus:ring-brand-orange focus:border-brand-orange" placeholder="Email" required>
+                        <textarea name="mensaje" rows="4" class="bg-gray-50 border border-gray-300 rounded-lg w-full p-2.5 dark:bg-gray-700 dark:text-white focus:ring-brand-orange focus:border-brand-orange" placeholder="Mensaje" required></textarea>
+                        <button type="submit" id="submitBtn" class="w-full text-white bg-brand-orange hover:bg-brand-orangeDark font-bold rounded-lg px-5 py-3 shadow-lg flex justify-center items-center transition-all">
                             <i class="fas fa-paper-plane mr-2"></i> ENVIAR MENSAJE
                         </button>
                         <div id="formFeedback" class="hidden p-4 text-green-800 bg-green-50 rounded-lg dark:bg-gray-800 dark:text-green-400 text-center">
@@ -171,7 +167,7 @@
     </a>
 
     <script>
-        // Dark Mode
+        // Dark Mode Logic
         const themeBtn = document.getElementById('theme-toggle');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
         const lightIcon = document.getElementById('theme-toggle-light-icon');
@@ -190,7 +186,7 @@
             localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
         });
 
-        // Menú Móvil
+        // Mobile Menu
         document.getElementById('menu-toggle').addEventListener('click', () => {
             document.getElementById('navbar-sticky').classList.toggle('hidden');
         });
@@ -216,13 +212,14 @@
                     form.reset();
                     btn.classList.add('hidden');
                 } else {
-                    alert("Error al enviar.");
+                    alert("Error al enviar el formulario.");
                     btn.disabled = false;
                     btn.innerHTML = 'ENVIAR MENSAJE';
                 }
             } catch (error) {
-                alert("Error de conexión.");
+                alert("Error de conexión. Revisa tu internet.");
                 btn.disabled = false;
+                btn.innerHTML = 'ENVIAR MENSAJE';
             }
         });
     </script>
