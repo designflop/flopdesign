@@ -78,61 +78,67 @@
         </div>
     </nav>
 
-    <section id="inicio" class="pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:grid-cols-12 gap-8">
-            <div class="mr-auto place-self-center lg:col-span-7">
-                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+    <section id="inicio" class="pt-28 pb-10 md:pt-40 md:pb-32 overflow-hidden">
+        <div class="max-w-screen-xl px-4 mx-auto flex flex-col lg:grid lg:grid-cols-12 gap-8 items-center text-center lg:text-left">
+            
+            <div class="lg:col-span-7">
+                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
                     Webs <span class="text-brand-orange">Simples,</span> bonitas y efectivas.
                 </h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                <p class="mb-6 font-light text-gray-500 md:text-lg lg:text-xl dark:text-gray-400">
                     Transformamos la presencia digital de Pymes y profesionales con diseño estratégico.
                 </p>
-                <a href="#contacto" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-white rounded-lg bg-brand-orange hover:bg-brand-orangeDark shadow-lg shadow-orange-500/30">
-                    Cotizar mi web <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-            <div class="hidden lg:col-span-5 lg:flex items-center justify-center relative">
-                <div class="absolute w-72 h-72 bg-brand-orange/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
-                <div class="relative w-full max-w-md animate-float">
-                    <img src="lamparita.jpg" alt="Creatividad" class="rounded-lg shadow-2xl w-full border-4 border-white dark:border-gray-700">
+                <div class="flex flex-col gap-4 sm:flex-row justify-center lg:justify-start">
+                    <a href="#contacto" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-white rounded-lg bg-brand-orange hover:bg-brand-orangeDark shadow-lg shadow-orange-500/30">
+                        Cotizar mi web <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
             </div>
+
+            <div class="lg:col-span-5 flex items-center justify-center relative w-full">
+                <div class="absolute w-48 h-48 md:w-72 md:h-72 bg-brand-orange/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
+                
+                <div class="relative w-2/3 sm:w-1/2 md:w-full max-w-sm animate-float">
+                    <img src="lamparita.jpg" alt="Creatividad" class="rounded-2xl shadow-2xl w-full border-4 border-white dark:border-gray-700">
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="servicios" class="py-24 transition-colors">
+    <section id="servicios" class="py-20 transition-colors">
         <div class="max-w-screen-xl px-4 mx-auto text-center">
-            <h2 class="text-4xl font-extrabold mb-4 text-gray-900 dark:text-white">Soluciones para tu Negocio</h2>
-            <p class="text-gray-600 dark:text-gray-400 text-lg mb-16 max-w-3xl mx-auto">Diseñamos estrategias digitales adaptadas específicamente a Pymes y profesionales independientes.</p>
-            <div class="grid gap-8 md:grid-cols-3 text-left">
-                <div class="bg-white/50 dark:bg-brand-darkSurface p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-brand-orange/50 transition-all group shadow-sm backdrop-blur-sm">
-                    <div class="w-12 h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-gray-900 dark:text-white">Soluciones para tu Negocio</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-lg mb-12 max-w-3xl mx-auto">Diseñamos estrategias digitales adaptadas a tu medida.</p>
+            <div class="grid gap-6 md:grid-cols-3 text-left">
+                <div class="bg-white/50 dark:bg-brand-darkSurface p-6 md:p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-brand-orange/50 transition-all group shadow-sm backdrop-blur-sm">
+                    <div class="w-12 h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center text-brand-orange mb-4">
                         <i class="fas fa-laptop-code text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Desarrollo Web a Medida</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Sitios web rápidos y optimizados para SEO.</p>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Desarrollo Web</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Sitios web rápidos y optimizados para Google.</p>
                 </div>
-                <div class="bg-white/50 dark:bg-brand-darkSurface p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-brand-orange/50 transition-all group shadow-sm backdrop-blur-sm">
-                    <div class="w-12 h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
+                <div class="bg-white/50 dark:bg-brand-darkSurface p-6 md:p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-brand-orange/50 transition-all group shadow-sm backdrop-blur-sm">
+                    <div class="w-12 h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center text-brand-orange mb-4">
                         <i class="fas fa-mobile-alt text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Diseño Responsivo</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Tu web se verá impecable en cualquier dispositivo.</p>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Diseño Responsivo</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Tu web se verá perfecta en cualquier celular.</p>
                 </div>
-                <div class="bg-white/50 dark:bg-brand-darkSurface p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-brand-orange/50 transition-all group shadow-sm backdrop-blur-sm">
-                    <div class="w-12 h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
+                <div class="bg-white/50 dark:bg-brand-darkSurface p-6 md:p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-brand-orange/50 transition-all group shadow-sm backdrop-blur-sm">
+                    <div class="w-12 h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center text-brand-orange mb-4">
                         <i class="fas fa-cog text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Mantenimiento</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Nosotros nos encargamos de que tu sitio siempre esté online.</p>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Mantenimiento</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Cuidado técnico constante de tu sitio.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contacto" class="border-t border-gray-200 dark:border-gray-800 mt-auto">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-12">
-            <div class="md:grid md:grid-cols-2 gap-12">
+    <footer id="contacto" class="border-t border-gray-200 dark:border-gray-800 mt-auto bg-white/30 dark:bg-brand-dark/30">
+        <div class="mx-auto w-full max-w-screen-xl p-6 py-12">
+            <div class="flex flex-col lg:grid lg:grid-cols-2 gap-12">
                 <div>
                     <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">¿Hablamos?</h2>
                     <p class="text-gray-500 dark:text-gray-400 mb-6">Estamos en Córdoba, Argentina.</p>
@@ -144,12 +150,12 @@
                 <div>
                     <form id="contactForm" action="https://formspree.io/f/xpqaelwd" method="POST" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" name="nombre" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-2.5 dark:text-white" placeholder="Tu nombre" required>
-                            <input type="tel" name="celular" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-2.5 dark:text-white" placeholder="+54 9..." required>
+                            <input type="text" name="nombre" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-3 dark:text-white" placeholder="Tu nombre" required>
+                            <input type="tel" name="celular" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-3 dark:text-white" placeholder="+54 9..." required>
                         </div>
-                        <input type="email" name="email" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-2.5 dark:text-white" placeholder="Email" required>
-                        <textarea name="mensaje" rows="4" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-2.5 dark:text-white" placeholder="Mensaje" required></textarea>
-                        <button type="submit" id="submitBtn" class="w-full text-white bg-brand-orange hover:bg-brand-orangeDark font-bold rounded-lg px-5 py-3 shadow-lg flex justify-center items-center">
+                        <input type="email" name="email" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-3 dark:text-white" placeholder="Email" required>
+                        <textarea name="mensaje" rows="4" class="bg-white dark:bg-brand-darkSurface border border-gray-300 dark:border-gray-700 rounded-lg w-full p-3 dark:text-white" placeholder="Mensaje" required></textarea>
+                        <button type="submit" id="submitBtn" class="w-full text-white bg-brand-orange hover:bg-brand-orangeDark font-bold rounded-lg px-5 py-4 shadow-lg flex justify-center items-center">
                             <i class="fas fa-paper-plane mr-2"></i> ENVIAR MENSAJE
                         </button>
                         <div id="formFeedback" class="hidden p-4 text-green-800 bg-green-50 rounded-lg dark:bg-green-900/20 dark:text-green-400 text-center">
@@ -167,7 +173,6 @@
     </a>
 
     <script>
-        // Dark Mode Logic
         const themeBtn = document.getElementById('theme-toggle');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
         const lightIcon = document.getElementById('theme-toggle-light-icon');
@@ -186,12 +191,10 @@
             localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
         });
 
-        // Mobile Menu
         document.getElementById('menu-toggle').addEventListener('click', () => {
             document.getElementById('navbar-sticky').classList.toggle('hidden');
         });
 
-        // Formspree AJAX Submission
         const form = document.getElementById("contactForm");
         const feedback = document.getElementById("formFeedback");
         const btn = document.getElementById("submitBtn");
