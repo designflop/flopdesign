@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
     
     <script>
         tailwind.config = {
@@ -29,12 +30,19 @@
                             darkSurface: '#1E293B',
                         }
                     },
-                    animation: { 'float': 'float 6s ease-in-out infinite' },
+                    animation: { 
+                        'float': 'float 6s ease-in-out infinite',
+                        'spotlight': 'spotlight 2s ease .75s 1 forwards',
+                    },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-20px)' },
-                        }
+                        },
+                        spotlight: {
+                            '0%': { opacity: '0', transform: 'translate(-72%, -62%) scale(0.5)' },
+                            '100%': { opacity: '1', transform: 'translate(-50%,-40%) scale(1)' },
+                        },
                     }
                 }
             }
@@ -79,7 +87,7 @@
     </nav>
 
     <section id="inicio" class="pt-28 pb-10 md:pt-40 md:pb-32 overflow-hidden">
-        <div class="max-w-screen-xl px-4 mx-auto flex flex-col lg:grid lg:grid-cols-12 gap-8 items-center text-center lg:text-left">
+        <div class="max-w-screen-xl px-4 mx-auto flex flex-col lg:grid lg:grid-cols-12 gap-12 items-center text-center lg:text-left">
             <div class="lg:col-span-7">
                 <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
                     Webs <span class="text-brand-orange">Simples,</span> bonitas y efectivas.
@@ -94,17 +102,24 @@
                 </div>
             </div>
 
-            <div class="lg:col-span-5 flex items-center justify-center relative w-full">
-                <div class="absolute w-48 h-48 md:w-72 md:h-72 bg-brand-orange/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
-                <div class="relative w-2/3 sm:w-1/2 md:w-full max-w-sm">
-                    <video 
-                        src="lamparita.mp4" 
-                        autoplay 
-                        loop 
-                        muted 
-                        playsinline 
-                        class="rounded-2xl shadow-2xl w-full border-4 border-white dark:border-gray-700 object-cover">
-                    </video>
+            <div class="lg:col-span-5 flex items-center justify-center relative w-full h-[500px]">
+                <!-- Interactive 3D Robot (Floating) -->
+                <div class="relative w-full h-full group transition-all duration-500">
+                    <!-- Aceternity Spotlight Effect -->
+                    <!-- Spotlight removed to fix visual artifact -->
+
+                    <!-- Spline Scene -->
+                    <div class="absolute inset-0 z-10">
+                        <spline-viewer 
+                            url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                            class="w-full h-full"
+                            loading-anim-type="spinner"
+                            id="robot-viewer"
+                        ></spline-viewer>
+                    </div>
+
+                    <!-- Ambient Glow -->
+                    <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-orange/10 to-transparent z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 </div>
             </div>
         </div>
@@ -232,6 +247,35 @@
                 btn.innerHTML = 'ENVIAR MENSAJE';
             }
         });
+
+        // Robust Hide Spline Logo & UI Elements
+        const hideSplineUI = () => {
+            const viewer = document.getElementById('robot-viewer') || document.querySelector('spline-viewer');
+            if (viewer && viewer.shadowRoot) {
+                // Target ID-based elements
+                const selectors = ['#logo', '#hint', '#hints', '#loader', '#preloader', '#spinner', '#hint-drag'];
+                selectors.forEach(sel => {
+                    const el = viewer.shadowRoot.querySelector(sel);
+                    if (el) el.style.display = 'none';
+                });
+                
+                // Target any links to spline.design
+                const links = viewer.shadowRoot.querySelectorAll('a');
+                links.forEach(a => {
+                    if (a.href && a.href.includes('spline.design')) a.style.display = 'none';
+                });
+            }
+        };
+
+        // Poll frequently at the start
+        let cleanupAttempts = 0;
+        const cleanupInterval = setInterval(() => {
+            hideSplineUI();
+            cleanupAttempts++;
+            if (cleanupAttempts > 30) clearInterval(cleanupInterval);
+        }, 500);
+
+        window.addEventListener('load', hideSplineUI);
     </script>
 </body>
 </html>
