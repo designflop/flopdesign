@@ -56,6 +56,20 @@
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-duration: 300ms;
         }
+
+        :root {
+            --orb-primary: rgb(59, 130, 246);
+            --orb-marker-strong: rgba(15, 23, 42, 0.7);
+            --orb-marker-weak: rgba(15, 23, 42, 0.35);
+            --orb-center: rgba(15, 23, 42, 0.9);
+        }
+
+        .dark {
+            --orb-primary: rgb(125, 211, 252);
+            --orb-marker-strong: rgba(255, 255, 255, 0.7);
+            --orb-marker-weak: rgba(255, 255, 255, 0.25);
+            --orb-center: rgba(255, 255, 255, 0.85);
+        }
     </style>
 </head>
 <body class="bg-brand-grayLight text-slate-800 dark:bg-brand-dark dark:text-slate-100 flex flex-col min-h-screen">
@@ -159,8 +173,37 @@
         <div class="mx-auto w-full max-w-screen-xl p-6 py-12">
             <div class="flex flex-col lg:grid lg:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">¿Hablamos con Flop Design?</h2>
-                    <p class="text-gray-500 dark:text-gray-400 mb-6">Estamos en Córdoba, Argentina.</p>
+                    <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Es hora de tomar buenas decisiones.</h2>
+                    
+                    <!-- Orbital Clock Integration -->
+                    <div id="orbital-clock-container" 
+                         class="relative flex items-center justify-center cursor-pointer select-none text-slate-900 dark:text-slate-100 mb-8 mt-6"
+                         style="perspective: 600px;">
+                        
+                        <div id="clock-main" class="relative w-52 h-52 transition-transform duration-300 ease-out">
+                            <!-- Outer glow -->
+                            <div id="clock-glow" class="absolute inset-0 rounded-full transition-all duration-500 opacity-0 bg-[radial-gradient(circle,_color-mix(in_srgb,_var(--orb-primary)_40%,_transparent)_0%,_transparent_70%)] scale-100"></div>
+                            
+                            <!-- Clock face -->
+                            <div class="absolute inset-2 rounded-full bg-white/95 dark:bg-brand-darkSurface border border-slate-200/70 dark:border-gray-800 shadow-xl">
+                                <!-- Inner ring -->
+                                <div id="inner-ring" class="absolute inset-3 rounded-full border border-black/5 dark:border-white/5 transition-all duration-500"></div>
+                                
+                                <!-- Hour markers container -->
+                                <div id="hour-markers" class="absolute inset-0"></div>
+                                
+                                <!-- Hands -->
+                                <div id="hour-hand" class="absolute left-1/2 bottom-1/2 w-1 origin-bottom rounded-full bg-slate-800 dark:bg-slate-200 transition-all duration-200" style="height: 28%; transform: translateX(-50%) rotate(0deg);"></div>
+                                <div id="minute-hand" class="absolute left-1/2 bottom-1/2 w-0.5 origin-bottom rounded-full bg-slate-500 dark:bg-slate-300 transition-all duration-200" style="height: 36%; transform: translateX(-50%) rotate(0deg);"></div>
+                                <div id="second-hand" class="absolute left-1/2 bottom-1/2 origin-bottom rounded-full bg-[var(--orb-primary)] shadow-[0_0_8px_color-mix(in_srgb,var(--orb-primary)_70%,transparent)]" style="width: 1px; height: 40%; transform: translateX(-50%) rotate(0deg);"></div>
+                                
+                                <!-- Center dot -->
+                                <div id="center-dot" class="absolute left-1/2 top-1/2 w-2.5 h-2.5 rounded-full bg-[var(--orb-center)] transition-all duration-300" style="transform: translate(-50%, -50%);"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-500 dark:text-gray-400 mb-6">Contactate con nosotros para que podamos ayudarte.</p>
                     <ul class="text-gray-500 dark:text-gray-400 space-y-4">
                         <li><i class="fas fa-envelope text-brand-orange mr-2"></i> designflop@gmail.com</li>
                         <li><i class="fas fa-phone text-brand-orange mr-2"></i> +54 9 351 240 2359</li>
@@ -276,6 +319,96 @@
         }, 500);
 
         window.addEventListener('load', hideSplineUI);
+
+        // Orbital Clock Logic
+        const initOrbitalClock = () => {
+            const container = document.getElementById('orbital-clock-container');
+            if (!container) return;
+            
+            const clockMain = document.getElementById('clock-main');
+            const glow = document.getElementById('clock-glow');
+            const innerRing = document.getElementById('inner-ring');
+            const hourMarkers = document.getElementById('hour-markers');
+            const hourHand = document.getElementById('hour-hand');
+            const minuteHand = document.getElementById('minute-hand');
+            const secondHand = document.getElementById('second-hand');
+            const centerDot = document.getElementById('center-dot');
+
+            // Generate markers
+            for(let i = 0; i < 12; i++) {
+                const angle = i * 30;
+                const rad = (angle - 90) * (Math.PI / 180);
+                const x = 50 + 38 * Math.cos(rad);
+                const y = 50 + 38 * Math.sin(rad);
+                
+                const marker = document.createElement('div');
+                marker.className = 'absolute w-1.5 h-1.5 rounded-full transition-all duration-300';
+                marker.style.left = `${x}%`;
+                marker.style.top = `${y}%`;
+                marker.style.transform = 'translate(-50%, -50%)';
+                hourMarkers.appendChild(marker);
+            }
+
+            const updateClock = () => {
+                const time = new Date();
+                const seconds = time.getSeconds() + time.getMilliseconds() / 1000;
+                const minutes = time.getMinutes() + seconds / 60;
+                const hours = (time.getHours() % 12) + minutes / 60;
+
+                const secondDeg = seconds * 6;
+                const minuteDeg = minutes * 6;
+                const hourDeg = hours * 30;
+
+                hourHand.style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
+                minuteHand.style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
+                secondHand.style.transform = `translateX(-50%) rotate(${secondDeg}deg)`;
+
+                // Update active marker
+                const activeIdx = Math.floor(hours);
+                const markers = hourMarkers.querySelectorAll('div');
+                markers.forEach((m, i) => {
+                    const isActive = i === activeIdx;
+                    if (isActive) {
+                        m.style.background = 'var(--orb-primary)';
+                        m.style.boxShadow = '0 0 10px color-mix(in srgb, var(--orb-primary) 70%, transparent)';
+                    } else {
+                        m.style.background = (i % 3 === 0) ? 'var(--orb-marker-strong)' : 'var(--orb-marker-weak)';
+                        m.style.boxShadow = 'none';
+                    }
+                });
+            };
+
+            setInterval(updateClock, 50);
+
+            container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+                const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+                const mousePosX = x * 8;
+                const mousePosY = y * 8;
+                
+                clockMain.style.transform = `rotateX(${-mousePosY}deg) rotateY(${mousePosX}deg)`;
+            });
+
+            container.addEventListener('mouseenter', () => {
+                glow.style.opacity = '1';
+                glow.style.transform = 'scale(1.3)';
+                innerRing.style.borderColor = 'color-mix(in srgb, var(--orb-primary) 40%, transparent)';
+                centerDot.style.background = 'var(--orb-primary)';
+                centerDot.style.boxShadow = '0 0 12px color-mix(in srgb, var(--orb-primary) 80%, transparent)';
+            });
+
+            container.addEventListener('mouseleave', () => {
+                clockMain.style.transform = `rotateX(0deg) rotateY(0deg)`;
+                glow.style.opacity = '0';
+                glow.style.transform = 'scale(1)';
+                innerRing.style.borderColor = ''; // reset to class value
+                centerDot.style.background = 'var(--orb-center)';
+                centerDot.style.boxShadow = 'none';
+            });
+        };
+
+        initOrbitalClock();
     </script>
 </body>
 </html>
